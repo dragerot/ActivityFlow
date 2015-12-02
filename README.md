@@ -34,6 +34,7 @@ public class ActivitiesTest {
 
 
 The framework has basically 3 classes:
+
 public class Activities<T,U>
 
 Public Input<T> input;
