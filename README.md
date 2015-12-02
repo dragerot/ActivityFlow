@@ -1,0 +1,36 @@
+# ActivityFlow
+
+A simple framework to write activities in java.
+
+Keep it simple. That's the main goal.
+
+Inspired by Apache Camel route, I needed a simpler framework to describe an activity flow written in javacode. 
+
+Using a common framework to express a activity flow, javacode may be easer to read and a flow change easer communicated.
+
+From unit test:
+
+public class ActivitiesTest {
+
+    @Test
+    public void OutputTest() {
+        RegistreringActivities aktivities = new RegistreringActivities(createRequest());
+        aktivities.doStart("Start").
+                doA("AA").
+                doB("BB").
+                doEnd("End");
+        Output<Response> result=aktivities.getOutput();
+        assertEquals("StartAABBEnd", result.get().getResultat());
+    }
+
+    public static Request createRequest() {
+        Request request = new Request();
+        request.setSsn("030865229520");
+        request.setName("Tore Gard");
+        request.setAddress("Øvre Movei 23");
+        return request;
+    }
+}
+
+
+Tore Gard
