@@ -1,0 +1,13 @@
+# Gradle #
+.gradle/
+build
+
+# IDEA #
+native
+atlassian-ide-plugin.xml
+.idea
+*.iml
+
+.nb-gradle
+.nb-gradle-properties
+
