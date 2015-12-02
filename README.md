@@ -25,9 +25,9 @@ public class ActivitiesTest {
 
     public static Request createRequest() {
         Request request = new Request();
-        request.setSsn("030865229520");
-        request.setName("Tore Gard");
-        request.setAddress("Øvre Movei 23");
+        request.setSsn("22033445229555");
+        request.setName("Dude");
+        request.setAddress("Road");
         return request;
     }
 }
