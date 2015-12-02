@@ -9,12 +9,12 @@ public class ActivitiesTest {
     @Test
     public void OutputTest() {
         RegistreringActivities aktivities = new RegistreringActivities(createRequest());
-        aktivities.doStart("AA").
-                doA("BB").
-                doB("CC").
-                doEnd("DD");
+        aktivities.doStart("Start").
+                doA("AA").
+                doB("BB").
+                doEnd("End");
         Output<Response> result=aktivities.getOutput();
-        assertEquals("AABBCCDD", result.get().getResultat());
+        assertEquals("StartAABBEnd", result.get().getResultat());
     }
 
     public static Request createRequest() {
