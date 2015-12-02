@@ -1,26 +1,23 @@
 package pakke.process;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class ActivitiesTest {
 
-   @Test
-    public void AA(){
+    @Test
+    public void OutputTest() {
         RegistreringActivities aktivities = new RegistreringActivities(createRequest());
-        aktivities.doA("AA").
-                doB("BB").
-                doC("CC");
-        //aktivities.getResult();
-       String d=aktivities.getActivitylog().toString();
-       System.out.println(aktivities.getActivitylog().toString());
-       assertEquals("AA",aktivities.getActivitylog().get(0));
-       assertEquals("BB",aktivities.getActivitylog().get(1));
-       assertEquals("CC",aktivities.getActivitylog().get(2));
-
+        aktivities.doStart("AA").
+                doA("BB").
+                doB("CC").
+                doEnd("DD");
+        Output<Response> result=aktivities.getOutput();
+        assertEquals("AABBCCDD", result.get().getResultat());
     }
 
-    public static Request createRequest(){
+    public static Request createRequest() {
         Request request = new Request();
         request.setSsn("030865229520");
         request.setName("Tore Gard");
