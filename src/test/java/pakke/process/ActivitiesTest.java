@@ -7,14 +7,26 @@ import org.junit.Test;
 public class ActivitiesTest {
 
     @Test
-    public void OutputTest() {
+    public void OutputTest1() {
         RegistreringActivities aktivities = new RegistreringActivities(createRequest());
         aktivities.doStart("Start").
                 doA("AA").
                 doB("BB").
                 doEnd("End");
-        Output<Response> result=aktivities.getOutput();
+        Output<Response> result = aktivities.getOutput();
         assertEquals("StartAABBEnd", result.get().getResultat());
+    }
+
+
+    @Test
+    public void OutputTest2() {
+        RegistreringActivities aktivities = new RegistreringActivities(createRequest());
+        aktivities.doStart("Start").
+                doB("BB").
+                doA("AA").
+                doEnd("End");
+        Output<Response> result = aktivities.getOutput();
+        assertEquals("StartBBAAEnd", result.get().getResultat());
     }
 
     public static Request createRequest() {
