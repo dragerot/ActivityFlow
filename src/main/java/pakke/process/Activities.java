@@ -1,22 +1,13 @@
 package pakke.process;
 
-import java.util.ArrayList;
 
-/**
- E - Element (used extensively by the Java Collections Framework)
- K - Key
- N - Number
- T - Type
- V - Value
- S,U,V etc. - 2nd, 3rd, 4th types
- */
-public class Activities<T,U> {
+public class Activities<T, U> {
 
-    Input<T> input;
-    Output<U> output;
+    private Input<T> input;
+    private Output<U> output;
 
-    public Activities(T t){
-        input= new Input<T>(t);
+    public Activities(T t) {
+        input = new Input<T>(t);
     }
 
     public Input<T> getInput() {
