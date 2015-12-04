@@ -12,11 +12,8 @@ The framework has basically 4 classes:
 
 
 class Activities<T,U> 
-
 Input<T> input
-
 Predicate<T>
-
 Output<U> output
 
 
