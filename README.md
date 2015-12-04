@@ -8,6 +8,18 @@ Inspired by Apache Camel route, I needed a simpler framework to describe an acti
 
 Using a common framework to express a activity flow, javacode may be easer to read and a flow change easer communicated.
 
+The framework has basically 4 classes:
+
+
+class Activities<T,U> 
+
+Input<T> input
+
+Predicate<T>
+
+Output<U> output
+
+
 From unit test:
 
 public class ActivitiesTest {
@@ -43,25 +55,7 @@ Example 2 :
     }
 
 
-  public class RequestNameStartWithAPredicateImpl implements Predicate<Request> {
-    @Override
-    public boolean matches(Request request) {
-        return request.getName().startsWith("A");
-    }
-}
 
-
-
-The framework has basically 4 classes:
-
-
-class Activities<T,U> 
-
-Input<T> input
-
-Predicate<T>
-
- Output<U> output
 
 
 
