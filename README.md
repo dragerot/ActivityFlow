@@ -28,27 +28,19 @@ Example 1 :
 
 Example 2 :   
 
-    @Test
-    public void OutputRequestnameStartWithATest() {
-        if(activities.doStart("Start").doPredicate(new RequestNameStartWithAPredicateImpl())){
-            activities.doA("AA");
+   @Test
+    public void createRequestNameStartWithA() {
+        activities = new RegistreringActivitiesPredicate(createRequestNameStartWithB());
+        if(activities.doStart("Start").doPredicate(new RequestNameStartWithBPredicateImpl())){
+            activities.doA("BB");
         }else
         {
-            activities.doB("BB");
+            activities.doB("AA");
         }
         activities.doEnd("End");
         Output<Response> result = activities.getOutput();
-        assertEquals("StartAAEnd", result.get().getResultat());
+        assertEquals("StartBBEnd", result.get().getResultat());
     }
-
-    public static Request createRequest() {
-        Request request = new Request();
-        request.setSsn("22033445229555");
-        request.setName("Dude");
-        request.setAddress("Road");
-        return request;
-    }
-}
 
 
 The framework has basically 4 classes:
