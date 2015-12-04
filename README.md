@@ -26,7 +26,8 @@ Example 1 :
     }
     
 
-Example 2 :    
+Example 2 :   
+
     @Test
     public void OutputRequestnameStartWithATest() {
         if(activities.doStart("Start").doPredicate(new RequestNameStartWithAPredicateImpl())){
