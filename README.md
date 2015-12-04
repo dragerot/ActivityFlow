@@ -26,9 +26,9 @@ Example 1 :
     }
     
 
-Example 2 :   
+Example 2 :  
 
-   @Test
+    @Test
     public void createRequestNameStartWithA() {
         activities = new RegistreringActivitiesPredicate(createRequestNameStartWithB());
         if(activities.doStart("Start").doPredicate(new RequestNameStartWithBPredicateImpl())){
@@ -41,6 +41,8 @@ Example 2 :
         Output<Response> result = activities.getOutput();
         assertEquals("StartBBEnd", result.get().getResultat());
     }
+
+  
 
 
 The framework has basically 4 classes:
