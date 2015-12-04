@@ -42,7 +42,14 @@ Example 2 :
         assertEquals("StartBBEnd", result.get().getResultat());
     }
 
-  
+
+  public class RequestNameStartWithAPredicateImpl implements Predicate<Request> {
+    @Override
+    public boolean matches(Request request) {
+        return request.getName().startsWith("A");
+    }
+}
+
 
 
 The framework has basically 4 classes:
