@@ -12,6 +12,8 @@ From unit test:
 
 public class ActivitiesTest {
 
+Example 1 :
+
     @Test
     public void OutputTest() {
         RegistreringActivities aktivities = new RegistreringActivities(createRequest());
@@ -21,6 +23,21 @@ public class ActivitiesTest {
                 doEnd("End");
         Output<Response> result=aktivities.getOutput();
         assertEquals("StartAABBEnd", result.get().getResultat());
+    }
+    
+
+Example 2 :    
+    @Test
+    public void OutputRequestnameStartWithATest() {
+        if(activities.doStart("Start").doPredicate(new RequestNameStartWithAPredicateImpl())){
+            activities.doA("AA");
+        }else
+        {
+            activities.doB("BB");
+        }
+        activities.doEnd("End");
+        Output<Response> result = activities.getOutput();
+        assertEquals("StartAAEnd", result.get().getResultat());
     }
 
     public static Request createRequest() {
@@ -33,14 +50,16 @@ public class ActivitiesTest {
 }
 
 
-The framework has basically 3 classes:
+The framework has basically 4 classes:
 
 
-public class Activities<T,U> 
+class Activities<T,U> 
 
-Public Input<T> input
+Input<T> input
 
-Public Output<U> output
+Predicate<T>
+
+ Output<U> output
 
 
 
